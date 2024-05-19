@@ -1,12 +1,8 @@
 import java.util.Scanner;
 public class Logic {
-    private Player player;
-    private Player house;
     private Deck deck;
 
     public Logic() {
-        this.player = new Player();
-        this.house = new Player();
         this.deck = new Deck();
     }
 
@@ -25,9 +21,5 @@ public class Logic {
         } else {
             player.addCard(hitCard);
         }
-    }
-
-    public void increaseScore(int score) {
-        score++;
     }
 }
