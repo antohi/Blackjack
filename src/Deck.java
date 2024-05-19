@@ -1,15 +1,13 @@
-package Domain;
-
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Deck {
-    private ArrayList<Card> deck;
+    private final ArrayList<Card> deck;
 
     public Deck() {
         this.deck = new ArrayList<>();
     }
+
     public void createDeck() {
         String[] values = {"A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         String[] types = {"C", "D", "H", "S"};
@@ -38,7 +36,7 @@ public class Deck {
     }
 
     public Card getCard() {
-        return deck.get(deck.indexOf(Math.random()*deck.size()));
+        return deck.get(deck.indexOf(Math.random() * deck.size()));
     }
 
     @Override

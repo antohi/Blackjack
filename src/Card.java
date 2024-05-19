@@ -1,5 +1,3 @@
-package Domain;
-
 public class Card {
     private String value;
     private String type;
@@ -17,8 +15,11 @@ public class Card {
         this.type = type;
     }
 
-    public String getValue() {
-        return value;
+    public int getValue() {
+        if (value.matches("J|Q|K")) {
+            return 10;
+        }
+        return Integer.valueOf(getValue());
     }
 
     public String getType() {
