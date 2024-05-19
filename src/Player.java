@@ -40,4 +40,14 @@ public class Player {
         }
         System.out.println(getHandValue());
     }
+
+    public boolean checkWin(Player againstPlayer) {
+        if (againstPlayer.getHandValue() > 21) {
+            return true;
+        }
+        if (getHandValue() == 21) {
+            return true;
+        }
+        return false;
+    }
 }

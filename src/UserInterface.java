@@ -17,6 +17,7 @@ public class UserInterface {
         System.out.println("=====================");
         System.out.println("Welcome to Blackjack!");
         System.out.println("=====================");
+        System.out.println("Your score: " + player.getScore() +" | Dealer's score: " + house.getScore());
         System.out.println("Input \"p\" to play a new game! Input \"q\" to quit.");
         while (true) {
             System.out.print("> ");
@@ -38,7 +39,30 @@ public class UserInterface {
         while (true) {
             System.out.println("Dealer's cards:");
             house.printHand();
-            System.out.println();
+            checkLoss(house.checkWin(player));
+            System.out.println("Your hand:");
+            player.printHand();
+            win(player.checkWin(house));
+            System.out.println("Would you like to [h] hit or [s] stand?");
         }
     }
+
+    public void checkLoss(boolean checkLoss) {
+        if (checkLoss) {
+            System.out.println("YOU LOSE!");
+            house.increaseScore();
+            run();
+        }
+    }
+
+    public void win(boolean checkWin) {
+        if (player.getScore() == 21) {
+            System.out.println("=====BLACKJACK=====");
+        }
+        System.out.println("YOU WIN!");
+        if (checkWin) {
+
+        }
+    }
+
 }

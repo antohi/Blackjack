@@ -22,4 +22,5 @@ public class Logic {
             player.addCard(hitCard);
         }
     }
+
 }
