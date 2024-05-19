@@ -19,11 +19,10 @@ public class Player {
         hand.add(card);
     }
     public int getHandValue(){
-        int sum = hand.stream()
-                .mapToInt(card -> card.getValue())
-                .sum();
-
-        return sum;
+//        int sum = hand.stream()
+////                .sum();
+//
+        return 0;
     }
 
 }

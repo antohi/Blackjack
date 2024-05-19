@@ -1,35 +1,27 @@
 package Domain;
 
 public class Card {
-    private int value;
-    private SpecialCards type;
+    private String value;
+    private String type;
 
-    public Card(int value) {
+    public Card(String value, String type) {
         this.value = value;
-        if (value < 10) {
-            this.type = SpecialCards.STANDARD;
-        }
-        if (value == 10) {
-            this.type = SpecialCards.FACE;
-        }
-        if (value == 11) {
-            this.type = SpecialCards.ACE;
-        }
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public void setType(SpecialCards type) {
         this.type = type;
     }
 
-    public int getValue() {
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getValue() {
         return value;
     }
 
-    public SpecialCards getType() {
+    public String getType() {
         return type;
     }
 

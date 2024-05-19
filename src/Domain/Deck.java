@@ -11,15 +11,22 @@ public class Deck {
         this.deck = new ArrayList<>();
     }
     public void createDeck() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 1; j < 11; j++) {
-                deck.add(new Card(j));
+        String[] values = {"A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        String[] types = {"C", "D", "H", "S"};
+        for (String type : types) {
+            for (String value : values) {
+                this.deck.add(new Card(value, type));
             }
-            deck.add(new Card(11));
         }
-        for (int j = 0; j < 8; j++) {
-            deck.add(new Card(10));
-        }
+//        for (int i = 0; i < 4; i++) {
+//            for (int j = 1; j < 11; j++) {
+//                deck.add(new Card(j));
+//            }
+//            deck.add(new Card(11));
+//        }
+//        for (int j = 0; j < 8; j++) {
+//            deck.add(new Card(10));
+//        }
     }
 
     public void shuffle() {
@@ -31,7 +38,7 @@ public class Deck {
     }
 
     public Card getCard() {
-        return deck.get(deck.indexOf(Math.random()*52));
+        return deck.get(deck.indexOf(Math.random()*deck.size()));
     }
 
     @Override
