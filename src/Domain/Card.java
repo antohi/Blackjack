@@ -1,3 +1,5 @@
+package Domain;
+
 public class Card {
     private String value;
     private int numValue;

@@ -1,3 +1,5 @@
+package Domain;
+
 import java.util.Scanner;
 
 public class Logic {
@@ -45,7 +47,7 @@ public class Logic {
     }
 
     public void dealerLogic(Player dealer) {
-        if (dealer.getHandValue() <= 17) {
+        if (dealer.getHandValue() < 17)  {
             hit(dealer);
         } else {
             setDealerStand();

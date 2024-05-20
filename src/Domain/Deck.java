@@ -1,3 +1,7 @@
+package Domain;
+
+import Domain.Card;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -19,12 +23,12 @@ public class Deck {
         }
 //        for (int i = 0; i < 4; i++) {
 //            for (int j = 1; j < 11; j++) {
-//                deck.add(new Card(j));
+//                deck.add(new Domain.Card(j));
 //            }
-//            deck.add(new Card(11));
+//            deck.add(new Domain.Card(11));
 //        }
 //        for (int j = 0; j < 8; j++) {
-//            deck.add(new Card(10));
+//            deck.add(new Domain.Card(10));
 //        }
     }
 

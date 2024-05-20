@@ -1,3 +1,5 @@
+package Domain;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -38,7 +40,13 @@ public class Player {
         for (Card card:hand) {
             System.out.println(card);
         }
-        System.out.println(getHandValue());
+        System.out.println("Total:" + getHandValue());
+    }
+
+    public void printDealerHand() {
+        System.out.println(hand.get(0));
+        System.out.println("Value: ? | Type: ? ");
+        System.out.println("Total: ?");
     }
 
     public boolean checkWin(Player againstPlayer) {
