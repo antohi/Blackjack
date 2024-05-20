@@ -50,4 +50,10 @@ public class Player {
         }
         return false;
     }
+
+    public void resetHand() {
+        this.hand = new ArrayList<>();
+        this.handValue = 0;
+        this.score = 0;
+    }
 }

@@ -1,11 +1,9 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Deck newDeck = new Deck();
-        newDeck.createDeck();
-        newDeck.shuffle();
-        System.out.println(newDeck);
-
-        System.out.println(newDeck.getDeck().size());
-
+        Scanner scanner = new Scanner(System.in);
+        UserInterface ui = new UserInterface(scanner);
+        ui.run();
     }
 }

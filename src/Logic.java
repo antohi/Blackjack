@@ -5,7 +5,7 @@ public class Logic {
     public Logic() {
         this.deck = new Deck();
     }
-
+// ACE DOESNT WORK
     public void hit(Player player) {
         Card hitCard = deck.getCard();
         if (String.valueOf(hitCard.getValue()).equals("A")) {

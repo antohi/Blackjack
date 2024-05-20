@@ -15,11 +15,12 @@ public class Card {
         this.type = type;
     }
 
+//    ACE DOESNT WORK
     public int getValue() {
-        if (value.matches("J|Q|K")) {
+        if (value.matches("[JQK]")) {
             return 10;
         }
-        return Integer.valueOf(getValue());
+        return Integer.valueOf(value);
     }
 
     public String getType() {
@@ -28,6 +29,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Value: " + getValue() + " | Type: ";
+        return "Value: " + getValue() + " | Type: " + getType();
     }
 }
