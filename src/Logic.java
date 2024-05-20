@@ -15,14 +15,12 @@ public class Logic {
     // ACE DOESNT WORK
     public void hit(Player player) {
         Card hitCard = deck.getCard();
-        if (String.valueOf(hitCard.getValue()).equals("A")) {
-            if (player.getHandValue() + hitCard.getValue() > 21) {
-                hitCard.setValue("2");
+        if (hitCard.getValue().equals("A")) {
+            if (player.getHandValue() + 11 > 21) {
+                hitCard.setNumValue(2);
                 player.addCard(hitCard);
             } else {
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Would you like your Ace's value to be a +2 or a +11?");
-                hitCard.setValue(scanner.nextLine());
+                hitCard.setNumValue(11);
                 player.addCard(hitCard);
             }
         } else {
@@ -38,7 +36,7 @@ public class Logic {
         return playerStand;
     }
 
-    public void setDealerStand(boolean stand) {
+    public void setDealerStand() {
         this.dealerStand = true;
     }
 
@@ -50,7 +48,7 @@ public class Logic {
         if (dealer.getHandValue() <= 17) {
             hit(dealer);
         } else {
-            dealerStand = true;
+            setDealerStand();
 //            if (player.getHandValue() > house.getHandValue()) {
 //                win(true);
 //            } else if (player.getHandValue() < house.getHandValue() && playerStand) {
@@ -59,11 +57,15 @@ public class Logic {
         }
     }
 
-    public void resetGame(Player house, Player player) {
+    public void resetGame(Player dealer, Player player) {
         dealerStand = false;
         playerStand = false;
         player.resetHand();
-        house.resetHand();
+        dealer.resetHand();
+        hit(player);
+        hit(player);
+        hit(dealer);
+        hit(dealer);
     }
 
 }

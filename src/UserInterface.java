@@ -35,10 +35,7 @@ public class UserInterface {
     }
 
     public void newGame() {
-        logic.hit(player);
-        logic.hit(player);
-        logic.hit(dealer);
-        logic.hit(dealer);
+        logic.resetGame(dealer, player);
         while (true) {
             System.out.println("Dealer's cards:");
             dealer.printHand();
@@ -46,13 +43,15 @@ public class UserInterface {
             player.printHand();
             loss(dealer.checkWin(player));
             win(player.checkWin(dealer));
+            if (player.getHandValue() == 21) {
+                win(true);
+            }
             System.out.println("Would you like to [h] hit or [s] stand?");
             if (!logic.isPlayerStand()) {
                 System.out.println("> ");
                 String input = scanner.nextLine();
                 if (input.equals("h")) {
                     logic.hit(player);
-                    continue;
                 }
                 if (input.equals("s")) {
                     logic.setPlayerStand();
@@ -64,7 +63,7 @@ public class UserInterface {
 
     public void loss(boolean checkLoss) {
         if (logic.isDealerStand() && logic.isPlayerStand()) {
-            if (player.getHandValue() < dealer.getHandValue()) {
+            if (player.getHandValue() < dealer.getHandValue() && dealer.getHandValue() < 21) {
                 checkLoss = true;
             }
         }
@@ -78,7 +77,7 @@ public class UserInterface {
 
     public void win(boolean checkWin) {
         if (logic.isDealerStand() && logic.isPlayerStand()) {
-            if (player.getHandValue() > dealer.getHandValue()) {
+            if (player.getHandValue() > dealer.getHandValue() && player.getHandValue() < 21) {
                 checkWin = true;
             }
             if (checkWin) {

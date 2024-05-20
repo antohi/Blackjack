@@ -29,7 +29,7 @@ public class Player {
 
     public int getHandValue() {
         handValue = hand.stream()
-                .mapToInt(Card::getValue)
+                .mapToInt(Card::getNumValue)
                 .sum();
         return handValue;
     }

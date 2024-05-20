@@ -8,8 +8,8 @@ public class Card {
         this.type = type;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setNumValue(int value) {
+        this.numValue = value;
     }
 
     public void setType(String type) {
@@ -17,15 +17,23 @@ public class Card {
     }
 
 //    ACE DOESNT WORK
-    public int getValue() {
+    public int getNumValue() {
         if (value.matches("[JQK]")) {
             return 10;
         }
+        if (value.equals("A")) {
+            return 11;
+        }
+
         return Integer.valueOf(value);
     }
 
     public String getType() {
         return type;
+    }
+
+    public String getValue() {
+        return this.value;
     }
 
     @Override
