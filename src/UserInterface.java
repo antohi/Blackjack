@@ -19,7 +19,7 @@ public class UserInterface {
         System.out.println("=====================");
         System.out.println("Welcome to Blackjack!");
         System.out.println("=====================");
-        System.out.println("Your score: " + player.getScore() + " | Dealer's score: " + house.getScore());
+        System.out.println("Your score: " + player.getScore() + " | Dealer's score: " + dealer.getScore());
         System.out.println("Input \"s\" to play a new game! Input \"q\" to quit.");
         while (true) {
             System.out.print("> ");
@@ -58,11 +58,16 @@ public class UserInterface {
                     logic.setPlayerStand();
                 }
             }
-            logic.dealerLogic(dealer, player);
+            logic.dealerLogic(dealer);
         }
     }
 
     public void loss(boolean checkLoss) {
+        if (logic.isDealerStand() && logic.isPlayerStand()) {
+            if (player.getHandValue() < dealer.getHandValue()) {
+                checkLoss = true;
+            }
+        }
         if (checkLoss) {
             System.out.println("YOU LOSE!");
             dealer.increaseScore();
@@ -72,16 +77,20 @@ public class UserInterface {
     }
 
     public void win(boolean checkWin) {
-        if (checkWin) {
-            if (player.getHandValue() == 21) {
-                System.out.println("=====BLACKJACK=====");
+        if (logic.isDealerStand() && logic.isPlayerStand()) {
+            if (player.getHandValue() > dealer.getHandValue()) {
+                checkWin = true;
             }
-            System.out.println("YOU WIN!");
-            logic.resetGame(dealer, player);
-            player.increaseScore();
-            run();
+            if (checkWin) {
+                if (player.getHandValue() == 21) {
+                    System.out.println("=====BLACKJACK=====");
+                }
+                System.out.println("YOU WIN!");
+                logic.resetGame(dealer, player);
+                player.increaseScore();
+                run();
+            }
         }
-    }
 
 //    public void dealerLogic() {
 //        if (house.getHandValue() <= 17) {
@@ -103,4 +112,5 @@ public class UserInterface {
 //        player.resetHand();
 //        house.resetHand();
 //    }
+    }
 }

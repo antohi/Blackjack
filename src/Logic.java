@@ -46,9 +46,9 @@ public class Logic {
         this.playerStand = true;
     }
 
-    public void dealerLogic(Player house, Player player) {
-        if (house.getHandValue() <= 17) {
-            hit(house);
+    public void dealerLogic(Player dealer) {
+        if (dealer.getHandValue() <= 17) {
+            hit(dealer);
         } else {
             dealerStand = true;
 //            if (player.getHandValue() > house.getHandValue()) {
