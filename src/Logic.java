@@ -1,11 +1,18 @@
 import java.util.Scanner;
+
 public class Logic {
     private Deck deck;
+    private boolean dealerStand;
+    private boolean playerStand;
+
 
     public Logic() {
         this.deck = new Deck();
+        this.dealerStand = false;
+        this.playerStand = false;
     }
-// ACE DOESNT WORK
+
+    // ACE DOESNT WORK
     public void hit(Player player) {
         Card hitCard = deck.getCard();
         if (String.valueOf(hitCard.getValue()).equals("A")) {
@@ -21,6 +28,42 @@ public class Logic {
         } else {
             player.addCard(hitCard);
         }
+    }
+
+    public boolean isDealerStand() {
+        return dealerStand;
+    }
+
+    public boolean isPlayerStand() {
+        return playerStand;
+    }
+
+    public void setDealerStand(boolean stand) {
+        this.dealerStand = true;
+    }
+
+    public void setPlayerStand() {
+        this.playerStand = true;
+    }
+
+    public void dealerLogic(Player house, Player player) {
+        if (house.getHandValue() <= 17) {
+            hit(house);
+        } else {
+            dealerStand = true;
+//            if (player.getHandValue() > house.getHandValue()) {
+//                win(true);
+//            } else if (player.getHandValue() < house.getHandValue() && playerStand) {
+//                loss(true);
+//            }
+        }
+    }
+
+    public void resetGame(Player house, Player player) {
+        dealerStand = false;
+        playerStand = false;
+        player.resetHand();
+        house.resetHand();
     }
 
 }

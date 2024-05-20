@@ -1,5 +1,6 @@
 public class Card {
     private String value;
+    private int numValue;
     private String type;
 
     public Card(String value, String type) {
